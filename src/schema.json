@@ -1,0 +1,205 @@
+{
+  "avatarImage": {
+    "type": "file"
+  },
+
+  "errorResponseBody": {
+    "type": "object",
+    "properties": {
+      "error": {
+        "type": "string"
+      }
+    }
+  },
+  "successResponseBody": {
+    "type": "object",
+    "properties": {
+      "success": {
+        "type": "boolean"
+      }
+    }
+  },
+
+  "loginRequestBody": {
+    "type": "object",
+    "properties": {
+      "email": {
+        "description": "Username",
+        "type": "string",
+        "format": "email",
+        "required": true,
+        "minLength": 1,
+        "maxLength": 255
+      },
+      "password": {
+        "description": "Password",
+        "type": "string",
+        "format": "string",
+        "required": true,
+        "minLength": 1,
+        "maxLength": 255
+      },
+      "guid": {
+        "description": "Unique ID for refresh token",
+        "type": "string",
+        "required": false,
+        "minLength": 1,
+        "maxLength": 255
+      }
+    }
+  },
+  "loginResponseBody": {
+    "type": "object",
+    "properties": {
+      "accessToken": {
+        "type": "string",
+        "description": "JWT Access token"
+      },
+      "refreshToken": {
+        "type": "string",
+        "description": "Refresh token"
+      },
+      "user": {
+        "type": "object",
+        "description": "User data",
+        "properties": {
+          "guid": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "avatar": {
+            "type": "string"
+          },
+          "lastLoginAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      }
+    }
+  },
+  "rejectTokenRequestBody": {
+    "type": "object",
+    "properties": {
+      "token": {
+        "type": "string",
+        "required": true,
+        "description": "Refresh token"
+      }
+    }
+  },
+  "refreshTokenRequestBody": {
+    "type": "object",
+    "properties": {
+      "token": {
+        "type": "string",
+        "required": true,
+        "description": "Refresh token"
+      }
+    }
+  },
+  "refreshTokenResponseBody": {
+    "type": "object",
+    "properties": {
+      "accessToken": {
+        "type": "string",
+        "description": "New access token"
+      }
+    }
+  },
+  "uploadAvatarRequestBody": {
+    "type": "object",
+    "properties": {
+      "upload": {
+        "type": "string",
+        "format": "binary",
+        "required": true
+      }
+    }
+  },
+  "uploadAvatarResponseBody": {
+    "type": "object",
+    "properties": {
+      "success": {
+        "type": "boolean"
+      }
+    }
+  },
+  "userProfileResponseBody": {
+    "type": "object",
+    "properties": {
+      "guid": {
+        "type": "string"
+      },
+      "name": {
+        "type": "string"
+      },
+      "email": {
+        "type": "string",
+        "format": "email"
+      },
+      "avatar": {
+        "type": "string"
+      },
+      "lastLoginAt": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "createdAt": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "updatedAt": {
+        "type": "string",
+        "format": "date-time"
+      }
+    }
+  },
+  "updateUserProfileRequestBody": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": "string",
+        "required": true,
+        "minLength": 1,
+        "maxLength": 255
+      }
+    }
+  },
+  "userMetadataListResponseBody": {
+    "type": "array",
+    "items": {
+      "properties": {
+        "key": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "userMetadataResponseBody": {
+    "type": "string"
+  },
+  "createUserMetadataRequestBody": {
+    "type": "string"
+  },
+  "updateUserMetadataRequestBody": {
+    "type": "string"
+  }
+}
